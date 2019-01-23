@@ -9,8 +9,15 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>assertion-generation</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <description>
+    Projet du module Vérification et Validation du Master 2 Informatique Ingénierie Logicielle
+  </description>
+  <url>https://github.com/AdrienLeblanc/vv</url>
+
+  <organization>
+    <name>ISTIC</name>
+    <url>https://istic.univ-rennes1.fr/</url>
+  </organization>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

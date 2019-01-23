@@ -31,6 +31,7 @@ hs_err_pid*
 .project
 bin/
 .settings/
+.vscode/
 
 # Maven generated sources
 target/
