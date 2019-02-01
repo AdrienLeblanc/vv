@@ -35,3 +35,6 @@ bin/
 
 # Maven generated sources
 target/
+
+# Useless scripts
+spoon.sh
