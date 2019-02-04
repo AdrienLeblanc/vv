@@ -19,7 +19,7 @@ pipeline {
                 failure {
                     mail to: 'erwan.iquel@gmail.com',
                          subject: "Failed pipeline: ${currentBuild.fullDisplayName}",
-                         body: "Something is wrong with ${env.BUILD_URL}
+                         body: "Something is wrong with ${env.BUILD_URL}"
                 }
             }
         }
