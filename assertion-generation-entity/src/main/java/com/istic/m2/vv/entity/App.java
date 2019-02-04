@@ -1,4 +1,4 @@
-package com.istic.m2.vv;
+package com.istic.m2.vv.entity;
 
 /**
  * Hello world!
