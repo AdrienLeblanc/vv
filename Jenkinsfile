@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
@@ -18,7 +18,7 @@ pipeline {
             post {
                 always {
                     junit '**/target/surefire-reports/*.xml'
-                    archiveArtifacts artifacts: 'target/**/*.jar',
+                    archiveArtifacts artifacts: '**/target/**/*.jar',
                                      fingerprint: true
                 }
                 failure {
