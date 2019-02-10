@@ -16,6 +16,14 @@ public interface Analyzer {
     /**
      * Launch analyze phase
      * @param ctClass
+     * @param methodName
      */
-    Map<CtMethod, List<CtLocalVariable>> analyze(CtType<?> ctClass);
+    Map<CtMethod, List<CtLocalVariable>> analyze(CtType<?> ctClass, String methodName);
+
+    /**
+     * Get local variables from a given method
+     * @param testMethod given method
+     * @return local variables
+     */
+    List<CtLocalVariable> getLocalVariables(CtMethod testMethod);
 }

@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import spoon.Launcher;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
@@ -41,7 +40,7 @@ public class RunnerTest {
     @Test
     public void run_ShouldCallAnalyzer() {
         this.runner.run();
-        verify(this.analyzer, atLeast(1)).analyze(any());
+        verify(this.analyzer, atLeast(1)).analyze(any(), any());
     }
 
     @Test

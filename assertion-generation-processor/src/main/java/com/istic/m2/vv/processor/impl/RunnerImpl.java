@@ -68,7 +68,7 @@ public class RunnerImpl implements Runner {
         List<CtType<?>> ctClasses = this.launcher.getFactory().Class().getAll();
 
         for(CtType<?> ctClass : ctClasses) {
-            Map<CtMethod, List<CtLocalVariable>> localVariables = this.analyzer.analyze(ctClass);
+            Map<CtMethod, List<CtLocalVariable>> localVariables = this.analyzer.analyze(ctClass, this.methodName);
 
             if(!localVariables.isEmpty()) {
                 for(CtMethod<?> ctMethod : localVariables.keySet()) {
