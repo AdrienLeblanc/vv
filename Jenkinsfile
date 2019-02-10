@@ -7,8 +7,19 @@ pipeline {
      }
     stages {
         stage('Build') {
+            when {
+                branch 'development'
+            }
             steps {
                 sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Sonar') {
+            environment {
+                SONAR_CLOUD_LOGIN_TOKEN = credentials('sonarcloud-login')
+            }
+            steps {
+                sh 'mvn verify -P sonar -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN'
             }
         }
         stage('Test') {
