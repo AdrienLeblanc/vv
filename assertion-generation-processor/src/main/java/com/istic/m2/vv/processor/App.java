@@ -1,7 +1,7 @@
 package com.istic.m2.vv.processor;
 
 /**
- * Main class
+ * Main city
  * @author Erwan IQUEL - Adrien LEBLANC
  * @version 1.0
  */
