@@ -17,7 +17,6 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
-                sh 'mvn verify -P sonar -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN -Dsonar.branch.name=$GIT_LOCAL_BRANCH'
             }
             post {
                 always {
@@ -25,6 +24,11 @@ pipeline {
                     archiveArtifacts artifacts: '**/target/**/*.jar',
                                      fingerprint: true
                 }
+            }
+        }
+        stage('Sonar') {
+            steps {
+                sh 'mvn verify -P sonar -DskipTests -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN -Dsonar.branch.name=$GIT_LOCAL_BRANCH'
             }
         }
     }
