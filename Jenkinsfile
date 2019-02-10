@@ -5,6 +5,9 @@ pipeline {
             args '-v $HOME/.m2:/root/.m2'
         }
      }
+     environment {
+                     SONAR_CLOUD_LOGIN_TOKEN = credentials('sonarcloud-login')
+                 }
     stages {
         stage('Build') {
             steps {
@@ -12,11 +15,8 @@ pipeline {
             }
         }
         stage('Sonar') {
-            environment {
-                SONAR_CLOUD_LOGIN_TOKEN = credentials('sonarcloud-login')
-            }
             steps {
-                sh 'mvn verify -P sonar -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN'
+                sh 'mvn verify -P sonar -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN -Dsonar.branch.name=$GIT_LOCAL_BRANCH'
             }
         }
         stage('Test') {

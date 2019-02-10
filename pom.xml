@@ -74,6 +74,10 @@
                         <groupId>org.sonarsource.scanner.maven</groupId>
                         <artifactId>sonar-maven-plugin</artifactId>
                     </plugin>
+                    <plugin>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-maven</artifactId>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -128,6 +132,22 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <version>LATEST</version>
+                    <configuration>
+                        <targetClasses>
+                            <param>com.istic.m2.vv.*</param>
+                        </targetClasses>
+                        <targetTests>
+                            <param>com.istic.m2.vv.*</param>
+                        </targetTests>
+                        <outputFormats>
+                            <outputFormat>XML</outputFormat>
+                        </outputFormats>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
