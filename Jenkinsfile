@@ -14,14 +14,10 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Sonar') {
-            steps {
-                sh 'mvn verify -P sonar -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN -Dsonar.branch.name=$GIT_LOCAL_BRANCH'
-            }
-        }
         stage('Test') {
             steps {
                 sh 'mvn test'
+                sh 'mvn verify -P sonar -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN -Dsonar.branch.name=$GIT_LOCAL_BRANCH'
             }
             post {
                 always {
