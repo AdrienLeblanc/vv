@@ -36,5 +36,6 @@ bin/
 # Maven generated sources
 target/
 
-# Useless scripts
+# Useless scripts & files
 spoon.sh
+.cp

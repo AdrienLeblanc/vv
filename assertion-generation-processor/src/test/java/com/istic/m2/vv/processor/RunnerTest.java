@@ -11,7 +11,8 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import spoon.Launcher;
 
-import static org.mockito.Mockito.verify;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RunnerTest {
@@ -32,30 +33,26 @@ public class RunnerTest {
     @Mock
     private Adder adder;
 
-    @Mock
-    private Launcher launcher;
-
     @Before
     public void setUp() {
         this.runner = new RunnerImpl(this.srcFolder, this.testFolder, this.testMethod, this.numberOfAssertions, this.analyzer, this.collector, this.adder);
-        this.runner.setLauncher(this.launcher);
     }
 
     @Test
     public void run_ShouldCallAnalyzer() {
         this.runner.run();
-        verify(this.analyzer).analyse();
+        verify(this.analyzer, atLeast(1)).analyze(any());
     }
 
     @Test
     public void run_ShouldCallCollector() {
         this.runner.run();
-        verify(this.collector).collect();
+        verify(this.collector, atLeast(1)).collect();
     }
 
     @Test
     public void run_ShouldCallAdder() {
         this.runner.run();
-        verify(this.adder).add();
+        verify(this.adder, atLeast(1)).add();
     }
 }
