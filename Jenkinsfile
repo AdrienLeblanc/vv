@@ -28,7 +28,9 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                sh 'mvn verify -P sonar -DskipTests -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN -Dsonar.branch.name=$GIT_LOCAL_BRANCH'
+                retry(2) {
+                    sh 'mvn verify -P sonar -DskipTests -Dsonar.login=$SONAR_CLOUD_LOGIN_TOKEN -Dsonar.branch.name=$GIT_LOCAL_BRANCH'
+                }
             }
         }
     }
