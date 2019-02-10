@@ -45,4 +45,20 @@
       <artifactId>hamcrest-all</artifactId>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <!-- Création du Manifest pour la définition de la classe Main -->
+            <manifest>
+              <mainClass>com.istic.m2.vv.processor.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

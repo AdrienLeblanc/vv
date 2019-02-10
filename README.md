@@ -1,5 +1,3 @@
-Inspiré par la présentation [Spoon at OW2Con'17](https://github.com/SpoonLabs/spoon-examples/tree/master/src/main/java/fr/inria/gforge/spoon/assertgenerator)
-
 # Validation et Vérification
 
 Erwan IQUEL - Adrien LEBLANC
@@ -14,4 +12,26 @@ Erwan IQUEL - Adrien LEBLANC
 
 ## Quickstart
 
-A venir... ☺
+Pour lancer le jeu de test:
+
+```bash
+$ mvn test 
+```
+
+Pour installer le projet localement:
+
+```bash
+$ mvn clean install -DskipTests
+```
+
+Pour lancer le programme    
+
+```bash
+$ java -jar assertion-generation-processor/target/assertion-generation-processor.jar /path/vers/le/projet/maven nom_de_la_méthode
+```
+
+## Test
+
+Project tested on:
+
+* nothing
