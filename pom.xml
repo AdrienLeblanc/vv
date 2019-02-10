@@ -106,6 +106,9 @@
                     <version>0.8.3</version>
                     <configuration>
                         <append>true</append>
+                        <excludes>
+                            <exclude>**/App.*</exclude>
+                        </excludes>
                     </configuration>
                     <executions>
                         <execution>
